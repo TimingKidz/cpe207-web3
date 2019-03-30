@@ -24,7 +24,7 @@ class UI {
     row.innerHTML = `
       <td class="text-center"><img src="icon/${contact.gender}.png" alt="${contact.gender} icon"></td>
       <td>${contact.name}</td>
-      <td><a href="mailto:${contact.email}"></a></td>
+      <td><a href="mailto:${contact.email}" style="color: #fff">${contact.email}</a></td>
       <td>${contact.number}</td>
       <td>${contact.subject}</td>
       <td>${contact.message}</td>
