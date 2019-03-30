@@ -15,7 +15,6 @@ class UI {
     Contact.forEach(contact => UI.addcontactToList(contact));
   }
 
-  // 4. add contact
   static addcontactToList(contact) {
     const list = document.querySelector('#contact-list');
 
@@ -32,36 +31,14 @@ class UI {
     `;
 
     list.appendChild(row);
-
-    // const list = document.querySelector('#contact-list');
-    // const row = document.createElement('div');
-    // row.className = 'card mb-4 shadow-sm';
-    // row.innerHTML = `
-    // <h4 class="card-header">${contact.name} <img src="icon/${contact.gender}.png" alt="${contact.gender} icon"></h4>
-    //     <div class="card-body">          
-    //       <div class="card-text">
-    //         <h6>Email: ${contact.email}</h6>
-    //         <h6>Phone: ${contact.number}</h6>
-    //         <h6>Subject: ${contact.subject}</h6>
-    //         <p>${contact.message}</p>            
-    //       </div>
-    //       <a href="#" class="btn btn-danger btn-sm delete"> Remove </a>
-    //     </div>
-    // `;
-    // list.appendChild(row);
   }
 
-  // 11. delete contact
   static deleteContact(el) {
-    // if element contains .delete class
     if (el.classList.contains("delete")) {
-      // remove <a> -> <td> -> <tr>
       el.parentElement.parentElement.remove();
     }
   }
 
-  // 13. show alert
-  // <div class="alert alert-success/alert-danger>Message</div>
   static showValid(name, email, number, subject, message) {
     if (name === "") {
       document.querySelector("#name").classList.add("is-invalid");
@@ -125,11 +102,9 @@ class UI {
     const err = document.querySelector('#error');
     err.appendChild(div);
 
-    // Vanish in 3 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 3000);
   }
 
-  // 9. clear fields
   static clearFields() {
     document.querySelector("#name").value = "";
     document.querySelector("#email").value = "";
@@ -170,25 +145,18 @@ class Store {
   }
 }
 
-// 4. Event: Display Contact
 document.addEventListener("DOMContentLoaded", UI.displayContact);
 
-// 5. Event: Add a contact
 document.querySelector("#contact-form").addEventListener("submit", e => {
-  // 7. Prevent actual submit action
   e.preventDefault();
 
-  // Get form values
   const name = document.querySelector("#name").value;
-  const gender = document.querySelector("#gender").options[
-    document.querySelector("#gender").selectedIndex
-  ].text;
+  const gender = document.querySelector("#gender").value;
   const email = document.querySelector("#email").value;
   const number = document.querySelector("#number").value;
   const subject = document.querySelector("#subject").value;
   const message = document.querySelector("#message").value;
 
-  // 12. Validate
   if (
     name === "" ||
     gender === "" ||
@@ -199,36 +167,18 @@ document.querySelector("#contact-form").addEventListener("submit", e => {
   ) {
     UI.showValid(name, email, number, subject, message);
   } else {
-    // 6. Instatiate contact
     const contact = new Contact(name, gender, email, number, subject, message);
-    // console.log(contact);
-
-    // 8. Add contact to UI
     UI.addcontactToList(contact);
-
-    // Add contact to store
     Store.addContact(contact);
-
-    // 13. Show success message
     UI.showAlert("contact Added", "success");
-
-    // 9. Clear fields
     UI.clearFields();
   }
 });
 
-// 10. Event: Remove a contact - event propagation by selecting the parent
 document.querySelector("#contact-list").addEventListener("click", e => {
-  // console.log(e.target);
-
-  // 11. Remove contact from UI
   UI.deleteContact(e.target);
-
-  // Remove contact from store
   Store.removeContact(
     e.target.parentElement.previousElementSibling.textContent
   );
-
-  // 13. Show success message
   UI.showAlert("contact Removed", "success");
 });
