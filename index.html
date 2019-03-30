@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <title>Contact</title>
+</head>
+
+<style>
+  body {
+    background-color: #231f21;
+    color: white;
+  }
+  hr{
+    border-color: white;
+    margin-top: 2em 0;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6 offset-md-3">
+        <h3 class="display-4 text-center mb-4">Contact Me</h3>
+
+        <form action="" id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter your name" id="name" class="form-control" />
+            <div id="name-feed" class="invalid-feedback">Please input your name.</div>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter email address" id="email" class="form-control" />
+            <div id="email-feed" class="invalid-feedback">Wrong input.</div>
+          </div>
+          <div class="form-group">
+            <label for="number">Phone Number</label>
+            <input type="text" placeholder="Enter your phone number" id="number" class="form-control" />
+            <div id="num-feed" class="invalid-feedback">Please input 10 number. [0-9]</div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" placeholder="Enter Subject" id="subject" class="form-control" />
+            <div id="subject-feed" class="invalid-feedback">Please input your subject.</div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Enter Message" cols="30" rows="10" class="form-control"></textarea>
+            <div id="message-feed" class="invalid-feedback">Please input your message.</div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+          <div id="error" class="mt-4"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- <div id="contact-list" class="">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+      </div>
+    </div> -->
+
+    <table id="list" class="table table-bordered table-dark mt-5">
+      <thead class="thead-dark">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Subject</th>
+          <th>Message</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="contact-list"></tbody>
+    </table>
+    <hr>
+  </div>
+
+  <footer class="container">
+    <div>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/maxim-basinski" title="Maxim Basinski">Maxim Basinski</a>
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+      is licensed by
+      <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0
+        BY</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
